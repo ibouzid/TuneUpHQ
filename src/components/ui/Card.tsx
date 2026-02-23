@@ -1,4 +1,4 @@
-import { type LucideIcon } from "lucide-react";
+import { BarChart, Car, Check, Clock, DollarSign, Receipt, Users, Wrench } from "lucide-react";
 import { Icon } from "./Icon";
 import clsx from "clsx";
 
@@ -8,8 +8,20 @@ const metricColors = {
   neutral: 'text-text-secondary',
 } as const;
 
+const icons = {
+  dollar: DollarSign,
+  car: Car,
+  users: Users,
+  receipt: Receipt,
+  bar: BarChart,
+  wrench: Wrench,
+  check: Check,
+  clock: Clock
+  
+} as const;
+
 interface CardProps {
-  icon?: LucideIcon;
+  icon?: keyof typeof icons;
   title: string;
   value: string;
   subTitle?: string;
@@ -33,7 +45,7 @@ export function Card({
         <label className="text-text-secondary text-sm">{subTitle}</label>
         <label className={clsx(metricColors[metricValue])}>{metric}</label>
       </div>
-     {icon &&  <Icon className='text-gold-500' icon={icon} />}
+     {icon &&  <Icon className='text-gold-500' icon={icons[icon]} />}
     </div>
   );
 }

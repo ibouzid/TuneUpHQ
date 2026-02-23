@@ -7,3 +7,4 @@ export const NAV_ITEMS = [
   { label: 'Customers', href: '/customers', icon: Users, roles: ['admin'] },
   { label: 'Settings', href: '/settings', icon: Settings, roles: ['admin', 'tech'] },
 ];
+

@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { vehicles } from "./data/vehicles";
+import { operationsData, overviewData } from "./data/dashboard";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -51,5 +52,12 @@ export const handlers = [
   }),
   http.post(`${API_URL}/auth/logout`, async () => {
     return new HttpResponse(null, { status: 204 });
+  }),
+   http.get(`${API_URL}/dashboard/overview`, () => {
+    return HttpResponse.json(overviewData);
+  }),
+
+   http.get(`${API_URL}/dashboard/operations`, () => {
+    return HttpResponse.json(operationsData);
   }),
 ];
