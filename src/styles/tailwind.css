@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@layer base {
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    html, .custom-scrollbar {
+      scrollbar-width: thin !important;
+      scrollbar-color: #E6B800 #0F172A !important;
+    }
+
+    ::-webkit-scrollbar {
+      display: block;
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0F172A;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #E6B800;
+      border-radius: 20px;
+      border: 3px solid #0F172A;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F1F5F9;
+    --bg-subtle: #E2E8F0;
+    
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-tertiary: #94A3B8;
+    --text-gold-primary: #8C6700;
+    --text-gold-secondary: #FFCA28;
+    
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --bg-primary: #0D0F14;
+    --bg-secondary: #111827;
+    --bg-tertiary: #1F2937;
+    --bg-subtle: #11141A;
+    
+    --text-primary: #F9FAFB;
+    --text-secondary: #9CA3AF;
+    --text-tertiary: #6B7280;
+    --text-gold-primary: #D4A017;
+    --text-gold-secondary: #FFECB3;
+    
+    --border-subtle: rgba(255, 255, 255, 0.04);
+    --shadow-color: rgba(0, 0, 0, 0.6);
+  }
+}
