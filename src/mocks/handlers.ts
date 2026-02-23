@@ -1,10 +1,13 @@
 import { http, HttpResponse } from "msw";
 import { vehicles } from "./data/vehicles";
-import { operationsData, overviewData } from "./data/dashboard";
+import { operationsData, overviewData, type DateRange } from "./data/dashboard";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const handlers = [
+  ////////
+  //VEHICLE APIS
+  ////////
   http.get(`${API_URL}/vehicles`, () => {
     return HttpResponse.json(vehicles);
   }),
@@ -19,6 +22,9 @@ export const handlers = [
     return HttpResponse.json(vehicle);
   }),
 
+  ////////
+  //AUTH APIS
+  ////////
   http.post(`${API_URL}/auth/login`, async ({ request }) => {
     const body = (await request.json()) as {
       username: string;
@@ -53,11 +59,29 @@ export const handlers = [
   http.post(`${API_URL}/auth/logout`, async () => {
     return new HttpResponse(null, { status: 204 });
   }),
-   http.get(`${API_URL}/dashboard/overview`, () => {
-    return HttpResponse.json(overviewData);
+
+  ////////
+  //DASHBOARD APIS
+  ////////
+  http.get(`${API_URL}/dashboard/overview`, ({ request }) => {
+    const dateRange = new URL(request.url).searchParams.get("dateRange");
+
+    const key: DateRange =
+      dateRange && dateRange in overviewData
+        ? (dateRange as DateRange)
+        : "day";
+
+    return HttpResponse.json(overviewData[key]);
   }),
 
-   http.get(`${API_URL}/dashboard/operations`, () => {
-    return HttpResponse.json(operationsData);
+  http.get(`${API_URL}/dashboard/operations`, ({ request }) => {
+    const dateRange = new URL(request.url).searchParams.get("dateRange");
+
+    const key: DateRange =
+      dateRange && dateRange in operationsData
+        ? (dateRange as DateRange)
+        : "day";
+
+    return HttpResponse.json(operationsData[key]);
   }),
 ];

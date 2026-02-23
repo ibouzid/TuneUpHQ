@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 
-export function useTab(defaultTab: string) {
+export function useTab(defaultTab?: string) {
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = searchParams.get('tab') || defaultTab;
 
