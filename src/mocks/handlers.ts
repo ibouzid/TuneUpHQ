@@ -1,8 +1,11 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse, ws } from "msw";
 import { vehicles } from "./data/vehicles";
 import { operationsData, overviewData, type DateRange } from "./data/dashboard";
+import { MOCK_FLEET } from "./data/fleetMonitor";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const fleetChannel = ws.link('wss://api.tuneuphq.com/v1/fleet');
+
 
 export const handlers = [
   ////////
@@ -83,5 +86,22 @@ export const handlers = [
         : "day";
 
     return HttpResponse.json(operationsData[key]);
+  }),
+  /////
+  //FLEET APIS AND WEBSOCKET CONNECTION 
+  ////
+http.get('https://api.tuneuphq.com/v1/assets', () => {
+  return HttpResponse.json(MOCK_FLEET); 
+}),
+  fleetChannel.addEventListener('connection', ({ client }) => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * MOCK_FLEET.length);
+      const asset = MOCK_FLEET[randomIndex];
+      asset.location.lat += (Math.random() - 0.5) * 0.001;
+      asset.location.lng += (Math.random() - 0.5) * 0.001;
+      client.send(JSON.stringify(asset));
+    }, 10);
+
+    client.addEventListener('close', () => clearInterval(interval));
   }),
 ];

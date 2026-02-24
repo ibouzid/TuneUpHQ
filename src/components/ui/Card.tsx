@@ -1,4 +1,4 @@
-import { BarChart, Car, Check, Clock, DollarSign, Receipt, Users, Wrench } from "lucide-react";
+import { BarChart, Car, Check, Clock, DollarSign, Forklift, HardHat, Receipt, Shovel, Truck, Users, Wrench } from "lucide-react";
 import { Icon } from "./Icon";
 import clsx from "clsx";
 import { memo } from "react";
@@ -17,7 +17,11 @@ const icons = {
   bar: BarChart,
   wrench: Wrench,
   check: Check,
-  clock: Clock
+  clock: Clock,
+  lift: Forklift,
+  truck: Truck,
+  crane: HardHat,
+  excavator: Shovel
   
 } as const;
 
@@ -39,7 +43,7 @@ export const Card =  memo(function Card({
   metricValue = 'neutral',
 }: CardProps) {
   return (
-    <div className="flex justify-between rounded-lg p-5 bg-background-secondary">
+    <div className="flex justify-between rounded-lg p-5 bg-background-secondary hover:border-t hover:border-gold-500">
       <div className="flex flex-col gap-1">
         <label className="text-text-secondary text-sm font-medium">{title}</label>
         <h3 className="text-text-primary text-3xl font-semibold">{value}</h3>

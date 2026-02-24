@@ -48,6 +48,7 @@
     
     --border-subtle: rgba(0, 0, 0, 0.05);
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --gradient-gold: linear-gradient(135deg, #FFECB3 0%, #FFD54F 45%, #E6B800 100%);
   }
 
   .dark {
@@ -64,5 +65,6 @@
     
     --border-subtle: rgba(255, 255, 255, 0.04);
     --shadow-color: rgba(0, 0, 0, 0.6);
+    --gradient-gold: linear-gradient(135deg, #F2C94C 0%, #D4A017 45%, #8C6700 100%);
   }
 }

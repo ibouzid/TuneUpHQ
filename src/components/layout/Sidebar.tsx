@@ -6,11 +6,13 @@ import { useIsMobile } from "../../hooks/useIsMobile";
 import Logo from '../../assets/logos/tuneUpHQLogo.svg';
 import { Icon } from "../ui/Icon";
 import clsx from "clsx";
+import { useLocation } from "react-router-dom";
 
 export function Sidebar() {
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   const sidebarWidth = isMobile
     ? mobileOpen
@@ -64,7 +66,7 @@ export function Sidebar() {
               icon={item.icon}
               label={item.label}
               isCollapsed={!isOpen && !isMobile}
-              isActive={window.location.pathname === item.href}
+              isActive={location.pathname === item.href}
               href={item.href}
               roles={item.roles}
             />

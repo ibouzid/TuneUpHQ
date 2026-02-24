@@ -12,7 +12,7 @@ interface SidebarItemProps {
   isCollapsed?: boolean;
 }
 
-export const SidebarItem = memo(function SidebarItem({
+export const SidebarItem =  memo(function SidebarItem({
   icon: Icon,
   label,
   isActive,
@@ -47,4 +47,4 @@ export const SidebarItem = memo(function SidebarItem({
       )}
     </div>
   );
-});
+})

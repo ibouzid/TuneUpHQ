@@ -75,6 +75,7 @@ const config: Config = {
         "gradient-gold-light": "linear-gradient(135deg, #FFECB3 0%, #FFD54F 45%, #E6B800 100%)",
         "gradient-primary": "linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%)",
         "gradient-sidebar-active": "linear-gradient(90deg, #D4A017 0%, transparent 100%)",
+        gold: "var(--gradient-gold)",
       },
       keyframes: {
         "slide-down-fade": {

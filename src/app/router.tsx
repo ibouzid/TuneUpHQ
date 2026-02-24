@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DashboardPage } from "../features/dashboard/DashboardPage";
 import { LoginPage } from "../features/login/LoginPage";
 import { ProtectedLayout } from "../layouts/ProtectedLayout";
+import FleetMonitor from "../features/fleetMonitor/FleetMonitorPage";
 
 export function AppRouter() {
   return (
@@ -12,6 +13,7 @@ export function AppRouter() {
 
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<DashboardPage />} />
+          <Route path="/fleet" element={<FleetMonitor />} />
         </Route>
 
       </Routes>
