@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -9,7 +10,7 @@ const data = [
   { name: 'Sat', revenue: 2390 },
 ];
 
-export function RevenueChart() {
+export default memo(function RevenueChart() {
   return (
     <div className="shadow-md h-[400px] w-full bg-background-secondary pr-6 py-6 pl-4 rounded-xl border border-border-subtle flex flex-col">
       <h3 className="text-text-primary font-bold mb-4 shrink-0">Revenue Overview</h3>
@@ -61,4 +62,4 @@ export function RevenueChart() {
       </div>
     </div>
   );
-}
+})

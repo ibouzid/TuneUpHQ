@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import type { LucideIcon } from "lucide-react";
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface SidebarItemProps {
@@ -11,7 +12,7 @@ interface SidebarItemProps {
   isCollapsed?: boolean;
 }
 
-export function SidebarItem({
+export const SidebarItem = memo(function SidebarItem({
   icon: Icon,
   label,
   isActive,
@@ -30,7 +31,7 @@ export function SidebarItem({
         "relative flex items-center h-11 px-3 mx-2 cursor-pointer rounded-md transition-colors group",
       )}
     >
-      <div className="flex items-center justify-center min-w-[40px]">
+      <div className="flex items-center justify-center min-w-10">
         <Icon size={20} />
       </div>
       <span
@@ -46,4 +47,4 @@ export function SidebarItem({
       )}
     </div>
   );
-}
+});

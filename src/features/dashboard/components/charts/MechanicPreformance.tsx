@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   BarChart,
   Bar,
@@ -17,7 +18,7 @@ const mechanicData = [
   { name: "Riley", completed: 15, overdue: 4 },
 ];
 
-export function MechanicPerformance() {
+export default memo(function MechanicPerformance() {
   return (
     <div
       className="shadow-md h-100 w-full bg-background-secondary p-6 rounded-xl border border-border-subtle 
@@ -94,4 +95,4 @@ export function MechanicPerformance() {
       </div>
     </div>
   );
-}
+})

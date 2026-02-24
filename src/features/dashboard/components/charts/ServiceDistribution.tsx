@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
 
 const serviceData = [
@@ -8,7 +9,7 @@ const serviceData = [
 ];
 
 
-export function ServiceDistribution() {
+export default memo(function ServiceDistribution() {
   return (
     <div className="shadow-md h-[400px] w-full bg-background-secondary p-6 rounded-xl border border-border-subtle flex flex-col">
       <h3 className="text-text-primary font-bold mb-4 shrink-0">Service Mix</h3>
@@ -31,4 +32,4 @@ export function ServiceDistribution() {
       </div>
     </div>
   );
-}
+})

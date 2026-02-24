@@ -1,6 +1,7 @@
 import { BarChart, Car, Check, Clock, DollarSign, Receipt, Users, Wrench } from "lucide-react";
 import { Icon } from "./Icon";
 import clsx from "clsx";
+import { memo } from "react";
 
 const metricColors = {
   positive: 'text-text-success',
@@ -29,7 +30,7 @@ interface CardProps {
   metricValue?: keyof typeof metricColors;
 }
 
-export function Card({
+export const Card =  memo(function Card({
   icon,
   title,
   value,
@@ -48,4 +49,4 @@ export function Card({
      {icon &&  <Icon className='text-gold-500' icon={icons[icon]} />}
     </div>
   );
-}
+})

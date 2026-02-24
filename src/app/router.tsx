@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { DashboardPage } from "../features/dashboard/DashboardPages";
+import { DashboardPage } from "../features/dashboard/DashboardPage";
 import { LoginPage } from "../features/login/LoginPage";
 import { ProtectedLayout } from "../layouts/ProtectedLayout";
 
