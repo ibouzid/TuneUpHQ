@@ -62,3 +62,12 @@ TypeScript – Type safety
 React Hooks – State management for UI interactions
 
 Headless UI / Custom Components – Accessible modals and overlays
+React & TypeScript – Front-end architecture.
+
+TanStack Query (React Query) – Server-state management and data prefetching.
+
+MSW (Mock Service Worker) – Advanced API and WebSocket interception for realistic hardware simulation.
+
+WebSockets (WSS) – Full-duplex real-time communication.
+
+Tailwind CSS – Professional SaaS-style UI and responsive layouts.
